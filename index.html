@@ -295,6 +295,147 @@
             line-height: 1.6;
         }
 
+        /* Results Section - NUEVA */
+        .results {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .results-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .results-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--highlight);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .results-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .results-subtitle {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-10px);
+            border-color: var(--highlight);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--highlight);
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.4;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .achievement-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(10px);
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--highlight);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .achievement-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .achievement-content p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+
         /* About Section */
         .about {
             padding: 100px 5%;
@@ -536,7 +677,7 @@
             line-height: 1.6;
         }
 
-        /* Final CTA Section - FOTO DE FONDO REMOVIDA */
+        /* Final CTA Section */
         .final-cta {
             padding: 120px 5%;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
@@ -544,22 +685,6 @@
             position: relative;
             overflow: hidden;
         }
-
-        /* REMOVIDO: La foto de fondo que estaba cortada y fea */
-        /*
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: url('https://raw.githubusercontent.com/brukappler/bruna-kappler-site/main/Bruna%20pic2.png') no-repeat center;
-            background-size: contain;
-            opacity: 0.1;
-            transform: rotate(-15deg);
-        }
-        */
 
         .final-cta-content {
             position: relative;
@@ -700,6 +825,11 @@
             to { opacity: 1; }
         }
 
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Mobile Navigation */
         .mobile-nav {
             display: none;
@@ -755,6 +885,14 @@
 
             .hero-description {
                 margin: 0 auto 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
             }
 
             .about-content {
@@ -815,6 +953,14 @@
                 font-size: 36px;
             }
 
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 width: 100%;
@@ -842,6 +988,7 @@
             <a href="#" class="logo">Bruna Kappler</a>
             <nav class="nav-desktop">
                 <a href="#about" data-key="nav_about">About Me</a>
+                <a href="#results" data-key="nav_results">Results</a>
                 <a href="#services" data-key="nav_services">Services</a>
                 <a href="#experience" data-key="nav_experience">Experience</a>
                 <a href="#contact" data-key="nav_contact">Contact</a>
@@ -858,6 +1005,7 @@
             <i class="fas fa-times"></i>
         </button>
         <a href="#about" onclick="toggleMenu()" data-key="nav_about">About Me</a>
+        <a href="#results" onclick="toggleMenu()" data-key="nav_results">Results</a>
         <a href="#services" onclick="toggleMenu()" data-key="nav_services">Services</a>
         <a href="#experience" onclick="toggleMenu()" data-key="nav_experience">Experience</a>
         <a href="#contact" onclick="toggleMenu()" data-key="nav_contact">Contact</a>
@@ -906,6 +1054,75 @@
                 </div>
                 <h3 data-key="value3_title">International Trade</h3>
                 <p data-key="value3_desc">Specialized in import/export operations, cross-border negotiations, and global supply chain management across multiple continents.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section - NUEVA -->
+    <section class="results" id="results">
+        <div class="results-container">
+            <div class="results-header">
+                <span class="results-tag" data-key="results_tag">Track Record</span>
+                <h2 class="results-title" data-key="results_title">Results & Impact</h2>
+                <p class="results-subtitle" data-key="results_subtitle">Measurable outcomes from over 10 years of driving operational excellence across three continents</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" data-target="50">50+</span>
+                    <span class="stat-label" data-key="stat1_label">High-Net-Worth Clients Managed Simultaneously</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="3">$3M</span>
+                    <span class="stat-label" data-key="stat2_label">Annual Wine Sales Managed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="40">40+</span>
+                    <span class="stat-label" data-key="stat3_label">Team Members Trained & Developed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="3">3</span>
+                    <span class="stat-label" data-key="stat4_label">Countries with Leadership Programs</span>
+                </div>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 data-key="achieve1_title">CRM & Inventory Systems Implementation</h3>
+                        <p data-key="achieve1_desc">Successfully deployed integrated customer relationship management and inventory control systems, streamlining operations and improving data accuracy.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 data-key="achieve2_title">Leadership Development Programs</h3>
+                        <p data-key="achieve2_desc">Designed and delivered leadership training programs across Brazil, Argentina, and Australia, building high-performance teams and organizational culture.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 data-key="achieve3_title">Process Optimization</h3>
+                        <p data-key="achieve3_desc">Implemented standardized administrative protocols that enhanced daily operational efficiency and improved interdepartmental collaboration.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 data-key="achieve4_title">Client Retention Excellence</h3>
+                        <p data-key="achieve4_desc">Maintained long-term relationships with high-net-worth clients through proactive service delivery and personalized investment management.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1052,7 +1269,7 @@
                 <a href="https://instagram.com/kapplerbruna" target="_blank" class="social-link" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/bruna-kappler/" target="_blank" class="social-link" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/bruna-kappler-748a6862/" target="_blank" class="social-link" title="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
                 <a href="mailto:bru.kappler@gmail.com" class="social-link" title="Email">
@@ -1074,6 +1291,7 @@
         const translations = {
             en: {
                 nav_about: "About Me",
+                nav_results: "Results",
                 nav_services: "Services",
                 nav_experience: "Experience",
                 nav_contact: "Contact",
@@ -1086,6 +1304,21 @@
                 value2_desc: "Dedicated to building lasting relationships with high-net-worth clients, ensuring seamless service delivery and satisfaction.",
                 value3_title: "International Trade",
                 value3_desc: "Specialized in import/export operations, cross-border negotiations, and global supply chain management across multiple continents.",
+                results_tag: "Track Record",
+                results_title: "Results & Impact",
+                results_subtitle: "Measurable outcomes from over 10 years of driving operational excellence across three continents",
+                stat1_label: "High-Net-Worth Clients Managed Simultaneously",
+                stat2_label: "Annual Wine Sales Managed",
+                stat3_label: "Team Members Trained & Developed",
+                stat4_label: "Countries with Leadership Programs",
+                achieve1_title: "CRM & Inventory Systems Implementation",
+                achieve1_desc: "Successfully deployed integrated customer relationship management and inventory control systems, streamlining operations and improving data accuracy.",
+                achieve2_title: "Leadership Development Programs",
+                achieve2_desc: "Designed and delivered leadership training programs across Brazil, Argentina, and Australia, building high-performance teams and organizational culture.",
+                achieve3_title: "Process Optimization",
+                achieve3_desc: "Implemented standardized administrative protocols that enhanced daily operational efficiency and improved interdepartmental collaboration.",
+                achieve4_title: "Client Retention Excellence",
+                achieve4_desc: "Maintained long-term relationships with high-net-worth clients through proactive service delivery and personalized investment management.",
                 about_tag: "About Me",
                 about_title: "Your Strategic Administrative Partner",
                 about_p1: "I am a proactive and detail-oriented professional with a Bachelor of Business Administration and proven experience as an Account Executive. My expertise lies in providing comprehensive administrative support, managing confidential information with discretion, and coordinating complex logistics operations.",
@@ -1117,6 +1350,7 @@
             },
             es: {
                 nav_about: "Sobre Mí",
+                nav_results: "Resultados",
                 nav_services: "Servicios",
                 nav_experience: "Experiencia",
                 nav_contact: "Contacto",
@@ -1129,6 +1363,21 @@
                 value2_desc: "Dedicada a construir relaciones duraderas con clientes de alto patrimonio, asegurando una entrega de servicio fluida y satisfacción.",
                 value3_title: "Comercio Internacional",
                 value3_desc: "Especializada en operaciones de importación/exportación, negociaciones transfronterizas y gestión de cadenas de suministro globales en múltiples continentes.",
+                results_tag: "Historial",
+                results_title: "Resultados e Impacto",
+                results_subtitle: "Resultados medibles de más de 10 años impulsando la excelencia operativa en tres continentes",
+                stat1_label: "Clientes de Alto Patrimonio Gestionados Simultáneamente",
+                stat2_label: "Ventas Anuales de Vinos Gestionadas",
+                stat3_label: "Miembros del Equipo Capacitados y Desarrollados",
+                stat4_label: "Países con Programas de Liderazgo",
+                achieve1_title: "Implementación de Sistemas CRM e Inventario",
+                achieve1_desc: "Desplegué exitosamente sistemas integrados de gestión de relaciones con clientes y control de inventario, optimizando operaciones y mejorando la precisión de datos.",
+                achieve2_title: "Programas de Desarrollo de Liderazgo",
+                achieve2_desc: "Diseñé e implementé programas de capacitación en liderazgo en Brasil, Argentina y Australia, construyendo equipos de alto rendimiento y cultura organizacional.",
+                achieve3_title: "Optimización de Procesos",
+                achieve3_desc: "Implementé protocolos administrativos estandarizados que mejoraron la eficiencia operativa diaria y la colaboración interdepartamental.",
+                achieve4_title: "Excelencia en Retención de Clientes",
+                achieve4_desc: "Mantuve relaciones a largo plazo con clientes de alto patrimonio mediante entrega proactiva de servicios y gestión personalizada de inversiones.",
                 about_tag: "Sobre Mí",
                 about_title: "Tu Aliada Estratégica en Administración",
                 about_p1: "Soy una profesional proactiva y orientada al detalle con Licenciatura en Administración de Empresas y experiencia comprobada como Ejecutiva de Cuentas. Mi experiencia radica en proporcionar soporte administrativo integral, gestionar información confidencial con discreción y coordinar operaciones logísticas complejas.",
@@ -1160,6 +1409,7 @@
             },
             pt: {
                 nav_about: "Sobre Mim",
+                nav_results: "Resultados",
                 nav_services: "Serviços",
                 nav_experience: "Experiência",
                 nav_contact: "Contato",
@@ -1172,6 +1422,21 @@
                 value2_desc: "Dedicada a construir relacionamentos duradouros com clientes de alto patrimônio, garantindo entrega de serviço fluida e satisfação.",
                 value3_title: "Comércio Internacional",
                 value3_desc: "Especializada em operações de importação/exportação, negociações transfronteiriças e gestão de cadeias de suprimentos globais em múltiplos continentes.",
+                results_tag: "Histórico",
+                results_title: "Resultados e Impacto",
+                results_subtitle: "Resultados mensuráveis de mais de 10 anos impulsionando a excelência operacional em três continentes",
+                stat1_label: "Clientes de Alto Patrimônio Gerenciados Simultaneamente",
+                stat2_label: "Vendas Anuais de Vinhos Gerenciadas",
+                stat3_label: "Membros da Equipe Treinados e Desenvolvidos",
+                stat4_label: "Países com Programas de Liderança",
+                achieve1_title: "Implementação de Sistemas CRM e Inventário",
+                achieve1_desc: "Implantei com sucesso sistemas integrados de gestão de relacionamento com clientes e controle de inventário, otimizando operações e melhorando a precisão dos dados.",
+                achieve2_title: "Programas de Desenvolvimento de Liderança",
+                achieve2_desc: "Projetei e implementei programas de treinamento em liderança no Brasil, Argentina e Austrália, construindo equipes de alta performance e cultura organizacional.",
+                achieve3_title: "Otimização de Processos",
+                achieve3_desc: "Implementei protocolos administrativos padronizados que melhoraram a eficiência operacional diária e a colaboração interdepartamental.",
+                achieve4_title: "Excelência em Retenção de Clientes",
+                achieve4_desc: "Mantive relacionamentos de longo prazo com clientes de alto patrimônio mediante entrega proativa de serviços e gestão personalizada de investimentos.",
                 about_tag: "Sobre Mim",
                 about_title: "Sua Parceira Estratégica em Administração",
                 about_p1: "Sou uma profissional proativa e orientada a detalhes com Bacharelado em Administração de Empresas e experiência comprovada como Executiva de Contas. Minha expertise está em fornecer suporte administrativo abrangente, gerenciar informações confidenciais com discrição e coordenar operações logísticas complexas.",
@@ -1208,13 +1473,11 @@
         function changeLanguage(lang) {
             currentLang = lang;
             
-            // Update active button
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
             
-            // Update all elements with data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang][key]) {
@@ -1222,7 +1485,6 @@
                 }
             });
             
-            // Update HTML lang attribute
             document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
         }
 
@@ -1230,7 +1492,6 @@
             document.getElementById('mobileNav').classList.toggle('active');
         }
 
-        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 100) {
